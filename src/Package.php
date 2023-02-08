@@ -1,13 +1,13 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate;
+namespace Deegitalbe\LaravelTrustupIoSatisfaction;
 
-use Henrotaym\VersioningPackageTemplate\Contracts\PackageContract;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\PackageContract;
 use Henrotaym\LaravelPackageVersioning\Services\Versioning\VersionablePackage;
 
 class Package extends VersionablePackage implements PackageContract
 {
     public static function prefix(): string
     {
-        return "versioning_package_template";
+        return "laravel-trustup-io-satisfaction";
     }
 }

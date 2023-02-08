@@ -1,4 +1,4 @@
-# versioning-package-template*
+# laravel-trustup-io-satisfaction*
 
 ## Installation
 
