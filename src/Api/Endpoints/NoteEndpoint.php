@@ -39,7 +39,31 @@ class NoteEndpoint implements NoteEndpointContract
         }
 
         if ($request->getCreatedAfter()) {
-            $implement->addQuery(['start_date' => $request->get]);
+            $implement->addQuery(['created_after' => $request->getCreatedAfter()]);
+        }
+
+        if ($request->getCreatedBefore()) {
+            $implement->addQuery(['created_before' => $request->getCreatedBefore()]);
+        }
+
+        if ($request->getIsUsing() === null) {
+            $implement->addQuery(['is_using' => $request->getIsUsing()]);
+        }
+
+        if ($request->isOrderingByLatest()) {
+            $implement->addQuery(['created_at' => 'desc']);
+        }
+
+        if ($request->isOrderingByOldest()) {
+            $implement->addQuery(['created_at' => 'asc']);
+        }
+
+        if ($request->isOrderingByValueDescending()) {
+            $implement->addQuery(['value' => 'desc']);
+        }
+
+        if ($request->isOrderingByValueAscending()) {
+            $implement->addQuery(['value' => 'asc']);
         }
 
         $response = $this->client->try($implement, "Cannot get all satisfactions");

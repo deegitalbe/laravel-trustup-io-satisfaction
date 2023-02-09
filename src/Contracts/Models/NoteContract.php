@@ -1,4 +1,5 @@
 <?php
+
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models;
 
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
@@ -6,9 +7,9 @@ use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
 interface NoteContract
 {
     /**
-     * Getting uuid.
+     * Getting id.
      */
-    public function getUuid(): string;
+    public function getId(): string;
 
     /**
      * Getting value.
@@ -36,11 +37,11 @@ interface NoteContract
     public function getText(): ?string;
 
     /**
-     * Setting uuid.
+     * Setting id.
      * 
      * @return static
      */
-    public function setUuid(string $uuid): NoteContract;
+    public function setId(string $id): NoteContract;
 
     /**
      * Setting value.
@@ -71,9 +72,11 @@ interface NoteContract
     public function setCreatedById(int $createdById): NoteContract;
 
     /**
-     * Setting uuid.
+     * Setting text.
      * 
      * @return static
      */
     public function setText(string $text): NoteContract;
+
+    public function fill(array $attributes): NoteContract;
 }
