@@ -35,6 +35,13 @@ interface IndexNoteRequestContract
     public function setProfessionalId(int $professionalId): IndexNoteRequestContract;
 
     /**
+     * Retrieving notes where is_using attribute is matching given value.
+     * 
+     * @return static
+     */
+    public function setIsUsing(bool $isUsing): IndexNoteRequestContract;
+
+    /**
      * Setting related origin.
      *  
      * @return static
@@ -42,27 +49,89 @@ interface IndexNoteRequestContract
     public function setCreatedById(int $createdById): IndexNoteRequestContract;
 
     /**
+     * Orderging by latest notes.
+     * @return static
+     */
+    public function orderByLatest(): IndexNoteRequestContract;
+    
+    /**
+     * Ordering by oldest notes.
+     * 
+     * @return static
+     */
+    public function orderByOldest(): IndexNoteRequestContract;
+    
+    /**
+     * Ordering by notes values from biggest to lowest.
+     * 
+     * @return static
+     */
+    public function orderByValueDescending(): IndexNoteRequestContract;
+    
+    /**
+     * Ordering by notes values from lowest to biggest.
+     * 
+     * @return static
+     */
+    public function orderByValueAscending(): IndexNoteRequestContract;
+
+    /**
      * Getting origin limiting notes.
      */
-    public function getOrigin(NoteOriginEnum $origin): ?NoteOriginEnum;
+    public function getOrigin(): ?NoteOriginEnum;
 
     /**
      * Getting created after threshold.
      */
-    public function getCreatedAfter(Carbon $createdAfter): ?Carbon;
+    public function getCreatedAfter(): ?Carbon;
 
     /**
      * Getting created before threshold.
      */
-    public function getCreatedBefore(Carbon $createdBefore): ?Carbon;
+    public function getCreatedBefore(): ?Carbon;
 
     /**
      * Getting professional id.
      */
-    public function getProfessionalId(int $professionalId): ?int;
+    public function getProfessionalId(): ?int;
 
     /**
      * Getting created by id.
      */
-    public function getCreatedById(int $createdById): ?int;
+    public function getCreatedById(): ?int;
+
+    /**
+     * Telling if orderging by latest notes.
+     * 
+     * @return bool
+     */
+    public function isOrderingByLatest(): bool;
+    
+    /**
+     * Telling if ordering by oldest notes.
+     * 
+     * @return bool
+     */
+    public function isOrderingByOldest(): bool;
+    
+    /**
+     * Telling if ordering by notes values from biggest to lowest.
+     * 
+     * @return bool
+     */
+    public function isOrderingByValueDescending(): bool;
+    
+    /**
+     * Telling if ordering by notes values from lowest to biggest.
+     * 
+     * @return bool
+     */
+    public function isOrderingByValueAscending(): bool;
+
+    /**
+     * Getting is using attribute.
+     * 
+     * @return static
+     */
+    public function getIsUsing(): ?bool;
 }
