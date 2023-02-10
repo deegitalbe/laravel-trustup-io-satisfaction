@@ -15,8 +15,8 @@ class IndexNoteRequest implements IndexNoteRequestContract
     protected ?bool $isUsing = true;
     protected ?int $createdById = null;
 
-    protected ?bool $orderBydateDesc = null;
-    protected ?bool $orderByValueDesc = null;
+    protected ?bool $orderBydateDesc = true;
+    protected ?bool $orderByValueDesc = true;
 
     public function setOrigin(NoteOriginEnum $origin): IndexNoteRequestContract
     {

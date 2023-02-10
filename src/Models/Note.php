@@ -79,7 +79,7 @@ class Note implements NoteContract
     {
         $this->setId($attributes['id'])
             ->setValue($attributes['value'])
-            ->setOrigin($attributes['origin'])
+            ->setOrigin(NoteOriginEnum::from($attributes['origin']))
             ->setProfessionalId($attributes['professional_id'])
             ->setCreatedById($attributes['created_by_id'])
             ->setText($attributes['text']);

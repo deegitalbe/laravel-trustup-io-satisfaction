@@ -35,7 +35,7 @@ class NoteEndpoint implements NoteEndpointContract
         }
 
         if ($request->getOrigin()) {
-            $implement->addQuery(['origin' => $request->getOrigin()]);
+            $implement->addQuery(['origin' => $request->getOrigin()->value]);
         }
 
         if ($request->getCreatedAfter()) {
