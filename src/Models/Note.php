@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Models;
 
+use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models\NoteContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
 
@@ -37,6 +38,11 @@ class Note implements NoteContract
     public function getText(): ?string
     {
         return $this->attributes['text'];
+    }
+
+    public function getDate(): Carbon
+    {
+        return $this->attributes['date'];
     }
 
     public function setId(string $id): NoteContract
@@ -75,6 +81,12 @@ class Note implements NoteContract
         return $this;
     }
 
+    public function setDate(string $date): NoteContract
+    {
+        $this->attributes['date'] = Carbon::parse($date);
+        return $this;
+    }
+
     public function fill(array $attributes): NoteContract
     {
         $this->setId($attributes['id'])
@@ -82,7 +94,8 @@ class Note implements NoteContract
             ->setOrigin(NoteOriginEnum::from($attributes['origin']))
             ->setProfessionalId($attributes['professional_id'])
             ->setCreatedById($attributes['created_by_id'])
-            ->setText($attributes['text']);
+            ->setText($attributes['text'])
+            ->setDate($attributes['date']);
 
         return $this;
     }
