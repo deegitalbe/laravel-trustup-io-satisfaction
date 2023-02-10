@@ -9,6 +9,7 @@ use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Endpoints\NoteEndpoint
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Requests\IndexNoteRequestContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Responses\IndexNoteResponseContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models\NoteContract;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Models\Note;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Package;
 use Henrotaym\LaravelPackageVersioning\Providers\Abstracts\VersionablePackageServiceProvider;
 

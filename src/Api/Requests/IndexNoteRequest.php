@@ -12,7 +12,7 @@ class IndexNoteRequest implements IndexNoteRequestContract
     protected ?Carbon $createdAfter = null;
     protected ?Carbon $createdBefore = null;
     protected ?int $professionalId = null;
-    protected ?bool $isUsing = null;
+    protected ?bool $isUsing = true;
     protected ?int $createdById = null;
 
     protected ?bool $orderBydateDesc = null;

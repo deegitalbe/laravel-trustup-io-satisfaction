@@ -39,11 +39,11 @@ class NoteEndpoint implements NoteEndpointContract
         }
 
         if ($request->getCreatedAfter()) {
-            $implement->addQuery(['created_after' => $request->getCreatedAfter()]);
+            $implement->addQuery(['created_after' => $request->getCreatedAfter()->toDateString()]);
         }
 
         if ($request->getCreatedBefore()) {
-            $implement->addQuery(['created_before' => $request->getCreatedBefore()]);
+            $implement->addQuery(['created_before' => $request->getCreatedBefore()->toDateString()]);
         }
 
         if ($request->getIsUsing() === null) {
@@ -67,6 +67,10 @@ class NoteEndpoint implements NoteEndpointContract
         }
 
         $response = $this->client->try($implement, "Cannot get all satisfactions");
+
+        if ($response->failed()) {
+            report($response->error());
+        }
 
         return app()->make(IndexNoteResponseContract::class)->setResponse($response);
     }
