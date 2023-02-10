@@ -8,15 +8,15 @@ use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
 
 class IndexNoteRequest implements IndexNoteRequestContract
 {
-    protected NoteOriginEnum $origin;
-    protected Carbon $createdAfter;
-    protected Carbon $createdBefore;
-    protected int $professionalId;
-    protected bool $isUsing;
-    protected int $createdById;
+    protected ?NoteOriginEnum $origin = null;
+    protected ?Carbon $createdAfter = null;
+    protected ?Carbon $createdBefore = null;
+    protected ?int $professionalId = null;
+    protected ?bool $isUsing = null;
+    protected ?int $createdById = null;
 
-    protected bool $orderBydateDesc;
-    protected bool $orderByValueDesc;
+    protected ?bool $orderBydateDesc = null;
+    protected ?bool $orderByValueDesc = null;
 
     public function setOrigin(NoteOriginEnum $origin): IndexNoteRequestContract
     {
