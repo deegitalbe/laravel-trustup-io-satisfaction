@@ -2,10 +2,11 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Api\Requests;
 
-use App\Enums\RelatedTypeEnum;
+
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Requests\IndexNoteRequestContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedTypeEnum;
 
 class IndexNoteRequest implements IndexNoteRequestContract
 {

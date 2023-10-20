@@ -2,10 +2,10 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Models;
 
-use App\Enums\RelatedTypeEnum;
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models\NoteContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedTypeEnum;
 
 class Note implements NoteContract
 {
