@@ -5,7 +5,7 @@ namespace Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models;
 
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
-use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedTypeEnum;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedToTypeEnum;
 
 interface NoteContract
 {
@@ -29,7 +29,7 @@ interface NoteContract
      */
     public function getRelatedToId(): string;
 
-    public function getRelatedToType(): RelatedTypeEnum;
+    public function getRelatedToType(): RelatedToTypeEnum;
 
     /**
      * Getting created by id.
@@ -74,7 +74,7 @@ interface NoteContract
      */
     public function setRelatedToId(string $relatedToId): NoteContract;
 
-    public function setRelatedToType(RelatedTypeEnum $relatedType): NoteContract;
+    public function setRelatedToType(RelatedToTypeEnum $relatedType): NoteContract;
 
     /**
      * Setting created by id.

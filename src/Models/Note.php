@@ -5,7 +5,7 @@ namespace Deegitalbe\LaravelTrustupIoSatisfaction\Models;
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models\NoteContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
-use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedTypeEnum;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedToTypeEnum;
 
 class Note implements NoteContract
 {
@@ -31,7 +31,7 @@ class Note implements NoteContract
         return $this->attributes['related_to_id'];
     }
 
-    public function getRelatedToType(): RelatedTypeEnum
+    public function getRelatedToType(): RelatedToTypeEnum
     {
         return $this->attributes['related_to_type'];
     }
@@ -75,7 +75,7 @@ class Note implements NoteContract
         return $this;
     }
 
-    public function setRelatedToType(RelatedTypeEnum $relatedType): NoteContract
+    public function setRelatedToType(RelatedToTypeEnum $relatedType): NoteContract
     {
         $this->attributes['related_to_type'] = $relatedType;
         return $this;

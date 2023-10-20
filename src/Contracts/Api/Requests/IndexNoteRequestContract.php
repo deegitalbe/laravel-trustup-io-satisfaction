@@ -5,7 +5,7 @@ namespace Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Requests;
 
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
-use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedTypeEnum;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedToTypeEnum;
 
 interface IndexNoteRequestContract
 {
@@ -37,7 +37,7 @@ interface IndexNoteRequestContract
      */
     public function setRelatedToId(string $relatedToId): IndexNoteRequestContract;
 
-    public function setRelatedToType(RelatedTypeEnum $relatedToTypeEnum): IndexNoteRequestContract;
+    public function setRelatedToType(RelatedToTypeEnum $relatedToTypeEnum): IndexNoteRequestContract;
 
     /**
      * Retrieving notes where is_using attribute is matching given value.
@@ -100,7 +100,7 @@ interface IndexNoteRequestContract
      */
     public function getRelatedToId(): ?string;
 
-    public function getRelatedToType(): ?RelatedTypeEnum;
+    public function getRelatedToType(): ?RelatedToTypeEnum;
 
     /**
      * Getting created by id.

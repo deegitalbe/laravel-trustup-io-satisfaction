@@ -2,7 +2,7 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Enums;
 
-enum RelatedTypeEnum: string
+enum RelatedToTypeEnum: string
 {
     case TENANT = 'tenant';
     case PRO = 'professional';

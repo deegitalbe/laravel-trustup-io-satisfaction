@@ -6,7 +6,7 @@ namespace Deegitalbe\LaravelTrustupIoSatisfaction\Api\Requests;
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Requests\IndexNoteRequestContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
-use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedTypeEnum;
+use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedToTypeEnum;
 
 class IndexNoteRequest implements IndexNoteRequestContract
 {
@@ -14,7 +14,7 @@ class IndexNoteRequest implements IndexNoteRequestContract
     protected ?Carbon $createdAfter = null;
     protected ?Carbon $createdBefore = null;
     protected ?string $relatedToId = null;
-    protected ?RelatedTypeEnum $relatedToType = null;
+    protected ?RelatedToTypeEnum $relatedToType = null;
     protected ?bool $isUsing = true;
     protected ?int $createdById = null;
 
@@ -45,7 +45,7 @@ class IndexNoteRequest implements IndexNoteRequestContract
         return $this;
     }
 
-    public function setRelatedToType(RelatedTypeEnum $relatedToType): IndexNoteRequestContract
+    public function setRelatedToType(RelatedToTypeEnum $relatedToType): IndexNoteRequestContract
     {
         $this->relatedToType = $relatedToType;
         return $this;
@@ -110,7 +110,7 @@ class IndexNoteRequest implements IndexNoteRequestContract
         return $this->relatedToId;
     }
 
-    public function getRelatedToType(): ?RelatedTypeEnum
+    public function getRelatedToType(): ?RelatedToTypeEnum
     {
         return $this->relatedToType;
     }
