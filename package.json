@@ -1,6 +1,6 @@
 {
     "name": "laravel-trustup-io-satisfaction",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "main": "index.js",
     "repository": "git@github.com:henrotaym/laravel-trustup-io-satisfaction.git",
     "author": "Mathieu Henrotay <mathieu.henrotay@gmail.com>",
