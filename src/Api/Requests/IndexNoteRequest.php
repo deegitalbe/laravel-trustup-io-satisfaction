@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Api\Requests;
 
+use App\Enums\RelatedTypeEnum;
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Requests\IndexNoteRequestContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
@@ -11,7 +12,8 @@ class IndexNoteRequest implements IndexNoteRequestContract
     protected ?NoteOriginEnum $origin = null;
     protected ?Carbon $createdAfter = null;
     protected ?Carbon $createdBefore = null;
-    protected ?int $professionalId = null;
+    protected ?string $relatedToId = null;
+    protected ?RelatedTypeEnum $relatedToType = null;
     protected ?bool $isUsing = true;
     protected ?int $createdById = null;
 
@@ -36,9 +38,15 @@ class IndexNoteRequest implements IndexNoteRequestContract
         return $this;
     }
 
-    public function setProfessionalId(int $professionalId): IndexNoteRequestContract
+    public function setRelatedToId(string $relatedToId): IndexNoteRequestContract
     {
-        $this->professionalId = $professionalId;
+        $this->relatedToId = $relatedToId;
+        return $this;
+    }
+
+    public function setRelatedToType(RelatedTypeEnum $relatedToType): IndexNoteRequestContract
+    {
+        $this->relatedToType = $relatedToType;
         return $this;
     }
 
@@ -96,9 +104,14 @@ class IndexNoteRequest implements IndexNoteRequestContract
         return $this->createdBefore;
     }
 
-    public function getProfessionalId(): ?int
+    public function getRelatedToId(): ?string
     {
-        return $this->professionalId;
+        return $this->relatedToId;
+    }
+
+    public function getRelatedToType(): ?RelatedTypeEnum
+    {
+        return $this->relatedToType;
     }
 
     public function getCreatedById(): ?int

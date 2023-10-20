@@ -26,8 +26,12 @@ class NoteEndpoint implements NoteEndpointContract
 
         $implement->setVerb('GET')->setUrl('notes');
 
-        if ($request->getProfessionalId()) {
-            $implement->addQuery(['professional_id' => $request->getProfessionalId()]);
+        if ($request->getRelatedToType()) {
+            $implement->addQuery(['related_to_type' => $request->getRelatedToType()]);
+        }
+
+        if ($request->getRelatedToId()) {
+            $implement->addQuery(['related_to_id' => $request->getRelatedToId()]);
         }
 
         if ($request->getCreatedById()) {

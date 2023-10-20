@@ -2,6 +2,8 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models;
 
+use App\Enums\RelatedTypeEnum;
+use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
 
 interface NoteContract
@@ -24,7 +26,9 @@ interface NoteContract
     /**
      * Getting professional id.
      */
-    public function getProfessionalId(): int;
+    public function getRelatedToId(): string;
+
+    public function getRelatedToType(): RelatedTypeEnum;
 
     /**
      * Getting created by id.
@@ -35,6 +39,11 @@ interface NoteContract
      * Getting text.
      */
     public function getText(): ?string;
+
+    /**
+     * Getting date.
+     */
+    public function getDate(): Carbon;
 
     /**
      * Setting id.
@@ -62,7 +71,9 @@ interface NoteContract
      * 
      * @return static
      */
-    public function setProfessionalId(int $professionalId): NoteContract;
+    public function setRelatedToId(string $relatedToId): NoteContract;
+
+    public function setRelatedToType(RelatedTypeEnum $relatedType): NoteContract;
 
     /**
      * Setting created by id.
@@ -77,6 +88,8 @@ interface NoteContract
      * @return static
      */
     public function setText(string $text): NoteContract;
+
+    public function setDate(string $date): NoteContract;
 
     public function fill(array $attributes): NoteContract;
 }

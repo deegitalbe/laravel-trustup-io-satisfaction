@@ -1,6 +1,8 @@
 <?php
+
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Api\Requests;
 
+use App\Enums\RelatedTypeEnum;
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
 
@@ -32,7 +34,9 @@ interface IndexNoteRequestContract
      *  
      * @return static
      */
-    public function setProfessionalId(int $professionalId): IndexNoteRequestContract;
+    public function setRelatedToId(string $relatedToId): IndexNoteRequestContract;
+
+    public function setRelatedToType(RelatedTypeEnum $relatedToTypeEnum): IndexNoteRequestContract;
 
     /**
      * Retrieving notes where is_using attribute is matching given value.
@@ -53,21 +57,21 @@ interface IndexNoteRequestContract
      * @return static
      */
     public function orderByLatest(): IndexNoteRequestContract;
-    
+
     /**
      * Ordering by oldest notes.
      * 
      * @return static
      */
     public function orderByOldest(): IndexNoteRequestContract;
-    
+
     /**
      * Ordering by notes values from biggest to lowest.
      * 
      * @return static
      */
     public function orderByValueDescending(): IndexNoteRequestContract;
-    
+
     /**
      * Ordering by notes values from lowest to biggest.
      * 
@@ -93,7 +97,9 @@ interface IndexNoteRequestContract
     /**
      * Getting professional id.
      */
-    public function getProfessionalId(): ?int;
+    public function getRelatedToId(): ?string;
+
+    public function getRelatedToType(): ?RelatedTypeEnum;
 
     /**
      * Getting created by id.
@@ -106,21 +112,21 @@ interface IndexNoteRequestContract
      * @return bool
      */
     public function isOrderingByLatest(): bool;
-    
+
     /**
      * Telling if ordering by oldest notes.
      * 
      * @return bool
      */
     public function isOrderingByOldest(): bool;
-    
+
     /**
      * Telling if ordering by notes values from biggest to lowest.
      * 
      * @return bool
      */
     public function isOrderingByValueDescending(): bool;
-    
+
     /**
      * Telling if ordering by notes values from lowest to biggest.
      * 

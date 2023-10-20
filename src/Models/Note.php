@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\LaravelTrustupIoSatisfaction\Models;
 
+use App\Enums\RelatedTypeEnum;
 use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models\NoteContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
@@ -25,9 +26,14 @@ class Note implements NoteContract
         return $this->attributes['origin'];
     }
 
-    public function getProfessionalId(): int
+    public function getRelatedToId(): string
     {
-        return $this->attributes['professional_id'];
+        return $this->attributes['related_to_id'];
+    }
+
+    public function getRelatedToType(): RelatedTypeEnum
+    {
+        return $this->attributes['related_to_type'];
     }
 
     public function getCreatedById(): int
@@ -63,9 +69,15 @@ class Note implements NoteContract
         return $this;
     }
 
-    public function setProfessionalId(int $professionalId): NoteContract
+    public function setRelatedToId(string $relatedToId): NoteContract
     {
-        $this->attributes['professional_id'] = $professionalId;
+        $this->attributes['related_to_id'] = $relatedToId;
+        return $this;
+    }
+
+    public function setRelatedToType(RelatedTypeEnum $relatedType): NoteContract
+    {
+        $this->attributes['related_to_type'] = $relatedType;
         return $this;
     }
 
@@ -92,7 +104,8 @@ class Note implements NoteContract
         $this->setId($attributes['id'])
             ->setValue($attributes['value'])
             ->setOrigin(NoteOriginEnum::from($attributes['origin']))
-            ->setProfessionalId($attributes['professional_id'])
+            ->setRelatedToId($attributes['related_to_id'])
+            ->setRelatedToType($attributes['related_to_type'])
             ->setCreatedById($attributes['created_by_id'])
             ->setText($attributes['text'])
             ->setDate($attributes['date']);
