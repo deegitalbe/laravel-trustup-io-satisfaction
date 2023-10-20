@@ -27,7 +27,7 @@ class NoteEndpoint implements NoteEndpointContract
         $implement->setVerb('GET')->setUrl('notes');
 
         if ($request->getRelatedToType()) {
-            $implement->addQuery(['related_to_type' => $request->getRelatedToType()]);
+            $implement->addQuery(['related_to_type' => $request->getRelatedToType()->value]);
         }
 
         if ($request->getRelatedToId()) {
