@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums;
+namespace Deegitalbe\LaravelTrustupIoSatisfaction\Enums;
 
 enum RelatedTypeEnum: string
 {
