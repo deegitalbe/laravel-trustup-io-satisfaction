@@ -78,4 +78,20 @@ class NoteEndpoint implements NoteEndpointContract
 
         return app()->make(IndexNoteResponseContract::class)->setResponse($response);
     }
+
+    public function store(array $attributes)
+    {
+        /** @var RequestContract */
+        $implement = app()->make(RequestContract::class);
+
+        $implement->setVerb('POST')->setUrl('notes')->addData($attributes);
+
+        $response = $this->client->try($implement, "Cannot store satisfaction");
+
+        if ($response->failed()) {
+            report($response->error());
+        }
+
+        return;
+    }
 }
