@@ -6,8 +6,9 @@ use Carbon\Carbon;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Contracts\Models\NoteContract;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\NoteOriginEnum;
 use Deegitalbe\LaravelTrustupIoSatisfaction\Enums\RelatedToTypeEnum;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Note implements NoteContract
+class Note implements NoteContract, Arrayable
 {
     protected array $attributes;
 
@@ -111,5 +112,10 @@ class Note implements NoteContract
             ->setDate($attributes['date']);
 
         return $this;
+    }
+
+    public function toArray()
+    {
+        return $this->attributes;
     }
 }
