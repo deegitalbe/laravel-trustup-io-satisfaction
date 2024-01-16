@@ -105,7 +105,7 @@ class Note implements NoteContract
             ->setValue($attributes['value'])
             ->setOrigin(NoteOriginEnum::from($attributes['origin']))
             ->setRelatedToId($attributes['related_to_id'])
-            ->setRelatedToType($attributes['related_to_type'])
+            ->setRelatedToType(RelatedToTypeEnum::from($attributes['related_to_type']))
             ->setCreatedById($attributes['created_by_id'])
             ->setText($attributes['text'])
             ->setDate($attributes['date']);
