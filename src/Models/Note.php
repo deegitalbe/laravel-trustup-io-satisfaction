@@ -88,7 +88,7 @@ class Note implements NoteContract, Arrayable
         return $this;
     }
 
-    public function setText(string $text): NoteContract
+    public function setText(?string $text): NoteContract
     {
         $this->attributes['text'] = $text;
         return $this;

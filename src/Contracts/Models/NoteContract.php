@@ -88,7 +88,7 @@ interface NoteContract
      * 
      * @return static
      */
-    public function setText(string $text): NoteContract;
+    public function setText(?string $text): NoteContract;
 
     public function setDate(string $date): NoteContract;
 
